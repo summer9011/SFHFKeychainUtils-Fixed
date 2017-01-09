@@ -134,4 +134,11 @@ Pod::Spec.new do |s|
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
 
+  non_arc_files = 'Classes/SFHFKeychainUtils.m'
+  s.exclude_files = non_arc_files
+  s.subspec 'no-arc' do |sp|
+    sp.source_files = non_arc_files
+    sp.requires_arc = false
+  end
+
 end
