@@ -91,7 +91,7 @@ Pod::Spec.new do |s|
   #
 
   s.source_files  = "Classes", "Classes/**/*.{h,m}"
-  # s.exclude_files = "Classes/Exclude"
+  s.exclude_files = "Classes/SFHFKeychainUtils.m"
 
   s.public_header_files = "Classes/**/*.h"
 
@@ -129,16 +129,9 @@ Pod::Spec.new do |s|
   #  where they will only apply to your library. If you depend on other Podspecs
   #  you can include multiple dependencies to ensure it works.
 
-  # s.requires_arc = true
+  s.requires_arc = false
 
   # s.xcconfig = { "HEADER_SEARCH_PATHS" => "$(SDKROOT)/usr/include/libxml2" }
   # s.dependency "JSONKit", "~> 1.4"
-
-  non_arc_files = 'Classes/SFHFKeychainUtils.m'
-  s.exclude_files = non_arc_files
-  s.subspec 'no-arc' do |sp|
-    sp.source_files = non_arc_files
-    sp.requires_arc = false
-  end
 
 end
